@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FFMI 計算器</title>
+  <meta name="description" content="有在健身的用這個啦" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1 class="title">FFMI 計算器</h1>
+
+      <form id="ffmi-form" class="form" novalidate>
+        <div class="field">
+          <label for="sex">性別</label>
+          <select id="sex" required>
+            <option value="male">男性</option>
+            <option value="female">女性</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="weight">體重（kg）</label>
+          <input id="weight" type="number" inputmode="decimal" step="0.1" min="0" placeholder="例如：72.5" required />
+          <small class="hint">請輸入公斤（可含小數）。</small>
+        </div>
+
+        <div class="field">
+          <label for="bodyfat">體脂（%）</label>
+          <input id="bodyfat" type="number" inputmode="decimal" step="0.1" min="0" max="100" placeholder="例如：18.5" required />
+          <small class="hint">請輸入 0–100 之間的百分比。</small>
+        </div>
+
+        <div class="field">
+          <label for="height">身高（cm）</label>
+          <input id="height" type="number" inputmode="decimal" step="0.1" min="0" placeholder="例如：175.0" required />
+          <small class="hint">請輸入公分（可含小數）。</small>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">計算 FFMI</button>
+          <button type="button" class="btn btn-ghost" id="reset-btn">清除</button>
+        </div>
+      </form>
+
+      <div id="result" class="result" aria-live="polite">
+        <div class="result-line"><span class="label">無脂肪體重：</span><span id="lean-mass" class="value">—</span></div>
+        <div class="result-line"><span class="label">FFMI：</span><span id="ffmi-value" class="value">—</span></div>
+        <div class="result-line"><span class="label">體態類型：</span><span id="ffmi-class" class="value">—</span></div>
+      </div>
+
+      <details class="note">
+        <summary>參考分級（男性 / 女性）</summary>
+        <ul>
+          <li>男性：&lt;18 低於平均；18–20 平均；20–22 高於平均；22–23 優秀；23–26 非常優秀；26–28 可能使用類固醇；&gt;28 非常有可能使用類固醇</li>
+          <li>女性：&lt;15 低於平均；15–17 平均；17–18 高於平均；18–19 優秀；19–21.5 非常優秀；21.5–25 可能使用類固醇；&gt;25 非常有可能使用類固醇</li>
+        </ul>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <p>純靜態頁面，適用 GitHub Pages。</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
